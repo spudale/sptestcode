@@ -13,22 +13,16 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  DAY_OF_WEEK: Monday
-
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  job1:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - id: set_pass
+        run: |
+          secret=Monday
+          echo "::set-secret name=password::$secret"
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: "::add-mask::$DAY_OF_WEEK"
+      - run: |
+          first_command --password '${{ steps.set_pass.secrets.password }}'
 
 
