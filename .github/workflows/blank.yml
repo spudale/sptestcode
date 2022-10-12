@@ -22,4 +22,10 @@ jobs:
       - name: Use the value
         id: step_one
         run: | 
-          echo "::add-mask::$MY_NAME"
+          echo "echo Hello, world!"
+        
+      - name: use 2
+        id: step-two
+        run: |
+          echo $MY_NAME
+          
