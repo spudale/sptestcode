@@ -19,5 +19,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: bash-version
-        run: echo "::add-mask::$MY_NAME"
+      - name: Use the value
+        id: step_one
+        run: | 
+          echo "::add-mask::$MY_NAME"
