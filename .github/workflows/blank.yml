@@ -16,13 +16,9 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    env:
+      MY_NAME: "Mona The Octocat"
     steps:
-      - id: set_pass
-        run: |
-          secret=Monday
-          echo "::set-secret name=password::$secret"
-
-      - run: |
-          first_command --password '${{ steps.set_pass.secrets.password }}'
-
+      - name: bash-version
+        run: echo "::add-mask::$MY_NAME"
 
