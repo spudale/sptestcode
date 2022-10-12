@@ -20,4 +20,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: bash-version
-        run: echo "::add-mask::$MY_NAME"
+        run: echo $MY_NAME
