@@ -14,6 +14,7 @@ on:
   workflow_dispatch:
 env:
   MY_NAME: "Mona The Octocat"
+  MY_Name2: "::add-mask::$MY_NAME"
 
 jobs:
   job1:
@@ -22,7 +23,7 @@ jobs:
       - name: Use the value
         id: step_one
         run: | 
-          echo "::add-mask::$MY_NAME"
+          echo $MY_NAME2
         
       - name: use 2
         id: step-two
